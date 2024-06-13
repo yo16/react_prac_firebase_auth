@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { createUser } from "../firebase";
+//import { useAuthContext } from "../AuthContext";
 
 export function SignUp() {
     const [email, setEmail] = useState("");
     const [pass, setPass] = useState("");
+    //const { user } = useAuthContext();
 
     function handleChangeEmail(event) {
         setEmail(event.currentTarget.value);
