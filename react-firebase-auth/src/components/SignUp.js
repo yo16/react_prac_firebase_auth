@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { createUser } from "../firebase";
 //import { useAuthContext } from "../AuthContext";
@@ -46,6 +47,13 @@ export function SignUp() {
                     onClick={handleOnRegist}
                 >登録</button>
             </div>
+
+            <hr />
+            <ul>
+                <li><Link to={"/"}>Home</Link></li>
+                <li><Link to={"/signup"}>SignUp</Link></li>
+                <li><Link to={"/login"}>Login</Link></li>
+            </ul>
         </div>
     );
 }
