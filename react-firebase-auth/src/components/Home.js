@@ -1,9 +1,12 @@
 import { Link, useNavigate } from "react-router-dom"
 
 import { logout } from "../firebase";
+import { useAuthContext } from "../AuthContext";
 
 export function Home() {
     const navigate = useNavigate();
+    const { user } = useAuthContext();
+
     function handleLogout() {
         logout();
         navigate("/login");
@@ -12,6 +15,8 @@ export function Home() {
     return (
         <>
             <h1>Home</h1>
+            user.email: {user.email}<br />
+
             <button onClick={handleLogout}>ログアウト</button>
 
             <hr />

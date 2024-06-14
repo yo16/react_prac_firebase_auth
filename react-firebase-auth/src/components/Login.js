@@ -42,7 +42,7 @@ export function Login() {
             <div>
                 <button
                     onClick={handleOnLogin}
-                >登録</button>
+                >ログイン</button>
             </div>
             <div>
                 ユーザー登録は<Link to={"/signup"}>こちら</Link>から
