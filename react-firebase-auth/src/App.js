@@ -1,10 +1,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+import { AuthProvider } from './AuthContext';
 import { Home } from './components/Home';
 import { SignUp } from './components/SignUp';
 import { Login } from './components/Login';
-import { AuthProvider } from './AuthContext';
-import { PrivateRoute } from './components/PrivateRoute';
+import { Secret } from './components/Secret';
+import { PublicLayout } from './components/PublicLayout';
+import { ProtectedLayout } from './components/ProtectedLayout';
 
 import './App.css';
 
@@ -14,16 +16,16 @@ function App() {
       <div style={{ margin: '2em' }}>
         <BrowserRouter>
           <Routes>
-            <Route
-              path="/"
-              element={
-                <PrivateRoute>
-                  <Home />
-                </PrivateRoute>
-              }
-            />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/login" element={<Login />} />
+            <Route element={<PublicLayout />}>
+              <Route path="/signup" element={<SignUp />} />
+              <Route path="/login" element={<Login />} />
+            </Route>
+
+            <Route element={<ProtectedLayout />}>
+              <Route path="/" element={<Home />} />
+              <Route path="/secret" element={<Secret />} />
+            </Route>
+
           </Routes>
         </BrowserRouter>
       </div>

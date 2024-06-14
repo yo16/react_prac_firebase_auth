@@ -15,9 +15,15 @@ export function Home() {
     return (
         <>
             <h1>Home</h1>
-            user.email: {user.email}<br />
 
-            <button onClick={handleLogout}>ログアウト</button>
+            {user &&
+                (
+                    <>
+                        <div>user.email: {user.email}</div>
+                        <button onClick={handleLogout}>ログアウト</button>
+                    </>
+                )
+            }
 
             <hr />
             <ul>
